@@ -4,8 +4,10 @@
     <string name="app_name">CMHome-SDK-Example</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="add_card">Add a Card!</string>
     <string name="add_card_button">New Test Card</string>
+    <string name="remove_all_cards_button">Remove all cards now</string>
+    <string name="update_card_button">Update Card 1</string>
+    <string name="update_card_2_button">Update Card 2</string>
     <string name="provider_name">CM Home API</string>
 
 </resources>
