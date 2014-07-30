@@ -29,6 +29,7 @@ public class TestActivity extends Activity {
             public
             void onClick(View view) {
                 DataCard dataCard = new DataCard(APP_NAME, new Date());
+                dataCard.setInternalId("123456");
                 dataCard.publish(TestActivity.this);
                 mCards.add(dataCard);
             }
@@ -42,6 +43,7 @@ public class TestActivity extends Activity {
                 for (DataCard dataCard : mCards) {
                     dataCard.unpublish(TestActivity.this);
                 }
+                mCards.clear();
             }
         });
 
