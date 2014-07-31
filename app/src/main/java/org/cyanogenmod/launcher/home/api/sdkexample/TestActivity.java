@@ -53,7 +53,7 @@ public class TestActivity extends Activity {
             public
             void onClick(View view) {
                 if (mCards.size() >= 1) {
-                    mCards.get(0).setSubject(APP_NAME + " " + "New Update Card 1!");
+                    mCards.get(0).setTitle(APP_NAME + " " + "New Update Card 1!");
                     mCards.get(0).publish(TestActivity.this);
                 }
             }
@@ -65,7 +65,7 @@ public class TestActivity extends Activity {
             public
             void onClick(View view) {
                 if (mCards.size() > 1) {
-                    mCards.get(1).setSubject(APP_NAME + " " + "New Update Card 2!");
+                    mCards.get(1).setTitle(APP_NAME + " " + "New Update Card 2!");
                     mCards.get(1).publish(TestActivity.this);
                 }
             }
