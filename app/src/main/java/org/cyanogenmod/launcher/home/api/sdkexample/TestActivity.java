@@ -1,6 +1,9 @@
 package org.cyanogenmod.launcher.home.api.sdkexample;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +18,7 @@ import java.util.List;
 public class TestActivity extends Activity {
     private static final String APP_NAME = "Test App 1";
     private List<DataCard> mCards = new ArrayList<DataCard>();
+    private Bitmap mAppIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,15 +27,16 @@ public class TestActivity extends Activity {
 
         mCards.addAll(DataCard.getAllPublishedDataCards(this));
 
+        // Grab the app icon to use as a test image
+        mAppIcon = BitmapFactory.decodeResource(getResources(),
+                                                         R.drawable.ic_launcher);
+
         Button addCardButton = (Button)findViewById(R.id.add_card_button);
         addCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public
             void onClick(View view) {
-                DataCard dataCard = new DataCard(APP_NAME, new Date());
-                dataCard.setInternalId("123456");
-                dataCard.publish(TestActivity.this);
-                mCards.add(dataCard);
+                createAndAddCard();
             }
         });
 
@@ -54,6 +59,9 @@ public class TestActivity extends Activity {
             void onClick(View view) {
                 if (mCards.size() >= 1) {
                     mCards.get(0).setTitle(APP_NAME + " " + "New Update Card 1!");
+                    Bitmap icon =  BitmapFactory.decodeResource(getResources(),
+                                                         R.drawable.cyanogenmodicon);
+                    mCards.get(0).setContentSourceImage(icon);
                     mCards.get(0).publish(TestActivity.this);
                 }
             }
@@ -71,5 +79,14 @@ public class TestActivity extends Activity {
             }
         });
 
+    }
+
+    private void createAndAddCard() {
+        DataCard dataCard = new DataCard(APP_NAME, new Date());
+        dataCard.setInternalId("123456");
+        dataCard.setContentSourceImage(mAppIcon);
+        dataCard.setSmallText("Some small text");
+        dataCard.publish(TestActivity.this);
+        mCards.add(dataCard);
     }
 }
