@@ -24,6 +24,14 @@
                   android:exported="true"
                   android:readPermission="org.cyanogenmod.launcher.home.api.FEED_READ"
                   android:writePermission="org.cyanogenmod.launcher.home.api.FEED_WRITE" />
+
+        <receiver
+            android:name="org.cyanogenmod.launcher.home.api.sdkexample.receiver.CardDeletedBroadcastReceiver">
+                  <intent-filter>
+                      <action android:name="org.cyanogenmod.launcher.home.api.CARD_DELETED" />
+                  </intent-filter>
+        </receiver>
+        
     </application>
 
 </manifest>
