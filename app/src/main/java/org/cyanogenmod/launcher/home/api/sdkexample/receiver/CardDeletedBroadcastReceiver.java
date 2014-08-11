@@ -1,5 +1,6 @@
 package org.cyanogenmod.launcher.home.api.sdkexample.receiver;
 
+import android.content.Context;
 import android.util.Log;
 
 import org.cyanogenmod.launcher.home.api.cards.DataCard;
@@ -13,10 +14,9 @@ public class CardDeletedBroadcastReceiver extends CmHomeCardChangeReceiver{
     public static final String TAG = "CardDeletedBroadcastReceiver";
 
     @Override
-    protected void onCardDeleted(DataCard.CardDeletedInfo cardDeletedInfo) {
+    protected void onCardDeleted(Context context, DataCard.CardDeletedInfo cardDeletedInfo) {
         Log.i(TAG, "CM Home API card was deleted: id: " + cardDeletedInfo.getId()
                    + ", internalID: " + cardDeletedInfo.getInternalId()
                    + ", authority: " + cardDeletedInfo.getAuthority()
-                   + ", globalID: " + cardDeletedInfo.getGlobalId());
-    }
+                   + ", globalID: " + cardDeletedInfo.getGlobalId());    }
 }
