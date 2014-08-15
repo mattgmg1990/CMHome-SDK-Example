@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import org.cyanogenmod.launcher.home.api.cards.DataCard;
+import org.cyanogenmod.launcher.home.api.cards.CardData;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,7 +17,7 @@ import java.util.List;
 
 public class TestActivity extends Activity {
     private static final String APP_NAME = "Test App 1";
-    private List<DataCard> mCards = new ArrayList<DataCard>();
+    private List<CardData> mCards = new ArrayList<CardData>();
     private Bitmap mAppIcon;
 
     @Override
@@ -25,7 +25,7 @@ public class TestActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        mCards.addAll(DataCard.getAllPublishedDataCards(this));
+        mCards.addAll(CardData.getAllPublishedCardDatas(this));
 
         // Grab the app icon to use as a test image
         mAppIcon = BitmapFactory.decodeResource(getResources(),
@@ -45,8 +45,8 @@ public class TestActivity extends Activity {
             @Override
             public
             void onClick(View view) {
-                for (DataCard dataCard : mCards) {
-                    dataCard.unpublish(TestActivity.this);
+                for (CardData cardData : mCards) {
+                    cardData.unpublish(TestActivity.this);
                 }
                 mCards.clear();
             }
@@ -82,11 +82,11 @@ public class TestActivity extends Activity {
     }
 
     private void createAndAddCard() {
-        DataCard dataCard = new DataCard(APP_NAME, new Date());
-        dataCard.setInternalId("123456");
-        dataCard.setContentSourceImage(mAppIcon);
-        dataCard.setSmallText("Some small text");
-        dataCard.publish(TestActivity.this);
-        mCards.add(dataCard);
+        CardData cardData = new CardData(APP_NAME, new Date());
+        cardData.setInternalId("123456");
+        cardData.setContentSourceImage(mAppIcon);
+        cardData.setSmallText("Some small text");
+        cardData.publish(TestActivity.this);
+        mCards.add(cardData);
     }
 }
