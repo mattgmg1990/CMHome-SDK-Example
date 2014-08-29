@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.cyanogenmod.launcher.home.api.sdkexample" >
 
+    <uses-permission android:name="org.cyanogenmod.launcher.home.api.FEED_PUBLISH" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -22,8 +24,8 @@
                   android:authorities="org.cyanogenmod.launcher.home.api.sdkexample.cmhomeapi"
                   android:enabled="true"
                   android:exported="true"
-                  android:readPermission="org.cyanogenmod.launcher.home.api.FEED_READ"
-                  android:writePermission="org.cyanogenmod.launcher.home.api.FEED_WRITE" />
+                  android:readPermission="org.cyanogenmod.launcher.home.api.FEED_HOST"
+                  android:writePermission="org.cyanogenmod.launcher.home.api.FEED_HOST" />
 
         <receiver
             android:name="org.cyanogenmod.launcher.home.api.sdkexample.receiver.CardDeletedBroadcastReceiver">

@@ -19,4 +19,8 @@ public class CardDeletedBroadcastReceiver extends CmHomeCardChangeReceiver{
                    + ", internalID: " + cardDeletedInfo.getInternalId()
                    + ", authority: " + cardDeletedInfo.getAuthority()
                    + ", globalID: " + cardDeletedInfo.getGlobalId());    }
+
+    @Override
+    protected void onRefreshRequested(Context context) {
+    }
 }
